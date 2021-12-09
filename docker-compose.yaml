@@ -1,0 +1,12 @@
+version: '3'
+services:
+   haproxy:
+      image: haproxytech/haproxy-debian:2.5.0
+      volumes:
+      - "./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg"
+      - "./iplist.lst:/etc/haproxy/iplist.lst"
+      ports:
+      - "9000:9000"
+      - "5000:5000"
+   web:
+      image: nginx
